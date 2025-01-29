@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poudha/constants/colors.dart';
 import 'package:poudha/constants/routes.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:poudha/constants/icons.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -154,7 +156,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: Navigate to add plant page
+          Navigator.pushNamed(context, AppRoutes.createPlant);
         },
         backgroundColor: AppColors.primary,
         child: const Icon(Icons.add, color: AppColors.white),
@@ -222,7 +224,7 @@ class _PlantMetricsCard extends StatelessWidget {
                         Row(
                           children: [
                             Icon(
-                              Icons.favorite,
+                              AppIcons.getHealthIcon(health),
                               size: 16,
                               color: _getHealthColor(health),
                             ),
