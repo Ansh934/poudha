@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:poudha/constants/colors.dart';
 import 'package:poudha/constants/routes.dart';
 
@@ -26,7 +27,7 @@ class RootPage extends StatelessWidget {
               children: [
                 // Logo or App Icon
                 const Icon(
-                  Icons.eco,
+                  LucideIcons.palmtree,
                   size: 100,
                   color: AppColors.primary,
                 ),

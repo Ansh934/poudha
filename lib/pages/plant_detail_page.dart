@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poudha/constants/colors.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:poudha/constants/icons.dart';
 
 class PlantDetailPage extends StatelessWidget {
   const PlantDetailPage({super.key});
@@ -61,13 +63,14 @@ class PlantDetailPage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            // Plant Emoji Status
+            // Plant Health Status Icon
             Container(
               height: 200,
               alignment: Alignment.center,
-              child: Text(
-                _getPlantEmoji(health),
-                style: const TextStyle(fontSize: 120),
+              child: Icon(
+                AppIcons.getHealthIcon(health),
+                size: 120,
+                color: _getHealthColor(health),
               ),
             ),
             
@@ -178,6 +181,12 @@ class PlantDetailPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color _getHealthColor(int health) {
+    if (health >= 80) return AppColors.primary;
+    if (health >= 60) return AppColors.secondary;
+    return AppColors.orange;
   }
 }
 
