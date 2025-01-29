@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:poudha/pages/home_page.dart';
 import 'package:poudha/constants/colors.dart';
 import 'package:poudha/constants/routes.dart';
 
@@ -72,7 +71,11 @@ class SignUpPage extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.home);
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    AppRoutes.home,
+                    (route) => false,
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,

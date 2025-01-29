@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:poudha/pages/login_page.dart';
-import 'package:poudha/pages/signup_page.dart';
 import 'package:poudha/constants/colors.dart';
 import 'package:poudha/constants/routes.dart';
 
