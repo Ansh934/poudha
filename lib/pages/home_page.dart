@@ -207,16 +207,42 @@ class _PlantMetricsCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    plantName,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: AppColors.darkGreen,
-                          fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          plantName,
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                color: AppColors.darkGreen,
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              size: 16,
+                              color: _getHealthColor(health),
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              'Health: $health%',
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: _getHealthColor(health),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Icon(
                     Icons.eco,
                     color: health > 80 ? AppColors.primary : AppColors.secondary,
+                    size: 28,
                   ),
                 ],
               ),
@@ -225,27 +251,27 @@ class _PlantMetricsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   _MetricColumn(
-                    icon: Icons.favorite,
-                    value: '$health%',
-                    label: 'Health',
-                    color: _getHealthColor(health),
+                    icon: Icons.wb_sunny,
+                    value: '${(health * 0.8).round()}%',
+                    label: 'Sunlight',
+                    color: AppColors.primary,
                   ),
                   _MetricColumn(
                     icon: Icons.water_drop,
                     value: '$humidity%',
-                    label: 'Humidity',
-                    color: AppColors.primary,
-                  ),
-                  _MetricColumn(
-                    icon: Icons.opacity,
-                    value: '$moisture%',
-                    label: 'Moisture',
+                    label: 'Air Humidity',
                     color: AppColors.primary,
                   ),
                   _MetricColumn(
                     icon: Icons.thermostat,
                     value: '${temperature.toStringAsFixed(1)}°C',
-                    label: 'Temp',
+                    label: 'Temperature',
+                    color: AppColors.primary,
+                  ),
+                  _MetricColumn(
+                    icon: Icons.opacity,
+                    value: '$moisture%',
+                    label: 'Soil Moisture',
                     color: AppColors.primary,
                   ),
                 ],
@@ -260,7 +286,7 @@ class _PlantMetricsCard extends StatelessWidget {
   Color _getHealthColor(int health) {
     if (health >= 80) return AppColors.primary;
     if (health >= 60) return AppColors.secondary;
-    return Colors.orange;
+    return AppColors.orange;
   }
 }
 
