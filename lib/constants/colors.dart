@@ -14,4 +14,7 @@ class AppColors {
 
   // Other Colors
   static const Color white = Colors.white;
+
+  // Status Colors
+  static const Color orange = Colors.orange;
 } 

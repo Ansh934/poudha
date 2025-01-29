@@ -3,6 +3,7 @@ import 'pages/root_page.dart';
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/home_page.dart';
+import 'pages/plant_detail_page.dart';
 import 'constants/colors.dart';
 import 'constants/routes.dart';
 
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.login: (context) => const LoginPage(),
         AppRoutes.signup: (context) => const SignUpPage(),
         AppRoutes.home: (context) => const HomePage(),
+        AppRoutes.plantDetail: (context) => const PlantDetailPage(),
       },
     );
   }
