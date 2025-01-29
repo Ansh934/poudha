@@ -12,14 +12,14 @@ class CreatePlantPage extends StatefulWidget {
 
 class _CreatePlantPageState extends State<CreatePlantPage> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
   final _nicknameController = TextEditingController();
+  final _descriptionController = TextEditingController();
   PlantSpecies? _selectedSpecies;
 
   @override
   void dispose() {
-    _nameController.dispose();
     _nicknameController.dispose();
+    _descriptionController.dispose();
     super.dispose();
   }
 
@@ -65,44 +65,10 @@ class _CreatePlantPageState extends State<CreatePlantPage> {
                             ),
                       ),
                       const SizedBox(height: 24),
-                      TextFormField(
-                        controller: _nameController,
-                        decoration: InputDecoration(
-                          labelText: 'Plant Name',
-                          hintText: 'Enter a name for your plant',
-                          prefixIcon: const Icon(LucideIcons.flower2),
-                          filled: true,
-                          fillColor: AppColors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a name';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      TextFormField(
-                        controller: _nicknameController,
-                        decoration: InputDecoration(
-                          labelText: 'Nickname (Optional)',
-                          hintText: 'Give your plant a nickname',
-                          prefixIcon: const Icon(LucideIcons.heart),
-                          filled: true,
-                          fillColor: AppColors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
                       DropdownButtonFormField<PlantSpecies>(
                         value: _selectedSpecies,
                         decoration: InputDecoration(
-                          labelText: 'Species',
+                          labelText: 'Plant Species',
                           prefixIcon: const Icon(LucideIcons.trees),
                           filled: true,
                           fillColor: AppColors.white,
@@ -136,10 +102,42 @@ class _CreatePlantPageState extends State<CreatePlantPage> {
                         },
                         validator: (value) {
                           if (value == null) {
-                            return 'Please select a species';
+                            return 'Please select a plant species';
                           }
                           return null;
                         },
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _nicknameController,
+                        decoration: InputDecoration(
+                          labelText: 'Nickname (Optional)',
+                          hintText: 'Give your plant a nickname',
+                          prefixIcon: const Icon(LucideIcons.heart),
+                          filled: true,
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _descriptionController,
+                        maxLines: 3,
+                        decoration: InputDecoration(
+                          labelText: 'Description (Optional)',
+                          hintText: 'Add notes about your plant',
+                          prefixIcon: const Padding(
+                            padding: EdgeInsets.only(bottom: 48),
+                            child: Icon(LucideIcons.text),
+                          ),
+                          filled: true,
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
                       ),
                     ],
                   ),
