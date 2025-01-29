@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poudha/pages/home_page.dart';
+import 'package:poudha/constants/colors.dart';
+import 'package:poudha/constants/routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -10,6 +12,9 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: const IconThemeData(
+          color: AppColors.primary,
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -17,8 +22,8 @@ class LoginPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFFF1F8E9),
-              Color(0xFFDCEDC8),
+              AppColors.lightBackground,
+              AppColors.mediumBackground,
             ],
           ),
         ),
@@ -38,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: AppColors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -50,7 +55,7 @@ class LoginPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: AppColors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -59,16 +64,11 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                  );
+                  Navigator.pushReplacementNamed(context, AppRoutes.home);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF4CAF50),
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: AppColors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),

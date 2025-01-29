@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'pages/root_page.dart';
+import 'pages/login_page.dart';
+import 'pages/signup_page.dart';
+import 'pages/home_page.dart';
+import 'constants/colors.dart';
+import 'constants/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,24 +20,30 @@ class MyApp extends StatelessWidget {
       title: 'Poudha',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF4CAF50),
-          primary: const Color(0xFF4CAF50),
-          secondary: const Color(0xFF81C784),
-          surface: const Color(0xFFF1F8E9),
+          seedColor: AppColors.primary,
+          primary: AppColors.primary,
+          secondary: AppColors.secondary,
+          surface: AppColors.lightBackground,
         ),
         useMaterial3: true,
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
-            color: Color(0xFF2E7D32),
+            color: AppColors.darkGreen,
             fontWeight: FontWeight.bold,
           ),
           headlineMedium: TextStyle(
-            color: Color(0xFF388E3C),
+            color: AppColors.mediumGreen,
             fontWeight: FontWeight.w600,
           ),
         ),
       ),
-      home: const RootPage(),
+      initialRoute: AppRoutes.root,
+      routes: {
+        AppRoutes.root: (context) => const RootPage(),
+        AppRoutes.login: (context) => const LoginPage(),
+        AppRoutes.signup: (context) => const SignUpPage(),
+        AppRoutes.home: (context) => const HomePage(),
+      },
     );
   }
 }

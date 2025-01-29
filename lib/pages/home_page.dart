@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poudha/constants/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Poudha'),
+        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
@@ -17,8 +18,8 @@ class HomePage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFFF1F8E9),
-              Color(0xFFDCEDC8),
+              AppColors.lightBackground,
+              AppColors.mediumBackground,
             ],
           ),
         ),
