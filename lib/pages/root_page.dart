@@ -27,7 +27,7 @@ class RootPage extends StatelessWidget {
               children: [
                 // Logo or App Icon
                 const Icon(
-                  LucideIcons.palmtree,
+                  LucideIcons.droplets,
                   size: 100,
                   color: AppColors.primary,
                 ),
